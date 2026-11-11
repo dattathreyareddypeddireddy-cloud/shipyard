@@ -1,4 +1,5 @@
 
+
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "../data/products";
@@ -8,6 +9,8 @@ export default function ProductCard({
 }: {
   product: Product;
 }) {
+  const isFirstProduct = product.name === "Wave Runner";
+
   return (
     <Link href={`/products/${product.id}`} className="card">
       <div
@@ -21,6 +24,8 @@ export default function ProductCard({
           height={400}
           sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 25vw"
           className="card-image"
+          loading={isFirstProduct ? "eager" : "lazy"}
+          fetchPriority={isFirstProduct ? "high" : "auto"}
         />
       </div>
 
