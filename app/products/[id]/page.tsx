@@ -66,6 +66,7 @@ export default async function ProductPage({
             height={800}
             sizes="(max-width: 650px) 100vw, 50vw"
             className="detail-image"
+            priority
           />
         </div>
 
