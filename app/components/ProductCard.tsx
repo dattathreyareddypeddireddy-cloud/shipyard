@@ -1,4 +1,5 @@
 
+import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "../data/products";
 
@@ -13,7 +14,14 @@ export default function ProductCard({
         className="card-art"
         style={{ background: product.accent }}
       >
-        <span className="card-emoji">{product.emoji}</span>
+        <Image
+          src={product.image}
+          alt={product.name}
+          width={600}
+          height={400}
+          sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 25vw"
+          className="card-image"
+        />
       </div>
 
       <div className="card-body">
