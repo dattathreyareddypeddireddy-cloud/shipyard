@@ -6,6 +6,7 @@ export interface Product {
   price: number;
   category: "Sneakers" | "Audio" | "Wearables" | "Gadgets";
   emoji: string;
+  image: string;
   accent: string;
   description: string;
   specs: string[];
@@ -19,6 +20,7 @@ export const products: Product[] = [
     price: 129,
     category: "Sneakers",
     emoji: "👟",
+    image: "/products/wave-runner.jpg",
     accent: "#6c8cff",
     description: "Lightweight running shoes with a breathable upper and comfortable foam sole.",
     specs: ["Knit upper", "Foam midsole", "320g per shoe", "Unisex sizing"],
@@ -30,6 +32,7 @@ export const products: Product[] = [
     price: 89,
     category: "Audio",
     emoji: "🎧",
+    image: "/products/pulse-buds.jpg",
     accent: "#a06cff",
     description: "Wireless earbuds with clear sound, noise cancellation and long battery life.",
     specs: ["Active noise cancellation", "8-hour battery", "USB-C case", "IPX4 sweatproof"],
@@ -41,6 +44,7 @@ export const products: Product[] = [
     price: 199,
     category: "Wearables",
     emoji: "⌚",
+    image: "/products/nova-watch.jpg",
     accent: "#42bda8",
     description: "A modern smartwatch with fitness tracking and smart notifications.",
     specs: ["Heart rate tracking", "AMOLED display", "Water resistant", "7-day battery"],
@@ -52,6 +56,7 @@ export const products: Product[] = [
     price: 149,
     category: "Audio",
     emoji: "🔊",
+    image: "/products/orbit-speaker.jpg",
     accent: "#f08a67",
     description: "Portable Bluetooth speaker with powerful sound and deep bass.",
     specs: ["Bluetooth 5.3", "12-hour battery", "Water resistant", "USB-C charging"],
@@ -63,6 +68,7 @@ export const products: Product[] = [
     price: 59,
     category: "Gadgets",
     emoji: "💡",
+    image: "/products/pixel-lamp.jpg",
     accent: "#e5b84d",
     description: "A colorful smart desk lamp for a comfortable workspace.",
     specs: ["RGB lighting", "Touch controls", "Adjustable brightness", "USB powered"],
@@ -74,6 +80,7 @@ export const products: Product[] = [
     price: 119,
     category: "Sneakers",
     emoji: "👟",
+    image: "/products/swift-runner.jpg",
     accent: "#e879a5",
     description: "Comfortable athletic shoes designed for daily movement.",
     specs: ["Breathable mesh", "Flexible sole", "Lightweight design", "Unisex sizing"],
@@ -85,6 +92,7 @@ export const products: Product[] = [
     price: 79,
     category: "Wearables",
     emoji: "⌚",
+    image: "/products/fit-band.jpg",
     accent: "#65a7d8",
     description: "A lightweight fitness band with activity and sleep tracking.",
     specs: ["Step tracking", "Sleep monitoring", "OLED display", "10-day battery"],
@@ -96,6 +104,7 @@ export const products: Product[] = [
     price: 249,
     category: "Gadgets",
     emoji: "🚁",
+    image: "/products/mini-drone.jpg",
     accent: "#9b8bd8",
     description: "A compact drone designed for beginners and creative exploration.",
     specs: ["HD camera", "Easy controls", "Foldable design", "20-minute flight time"],

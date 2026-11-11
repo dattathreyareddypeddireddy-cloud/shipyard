@@ -1,7 +1,14 @@
 
+import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getProduct, products } from "../../data/products";
+
+const Reviews = dynamic(() => import("./Reviews"), {
+  loading: () => <p>Loading customer reviews...</p>,
+});
 
 type ProductPageProps = {
   params: Promise<{ id: string }>;
@@ -11,6 +18,24 @@ export function generateStaticParams() {
   return products.map((product) => ({
     id: product.id,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: ProductPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const product = getProduct(id);
+
+  if (!product) {
+    return {
+      title: "Product Not Found | ShipYard",
+    };
+  }
+
+  return {
+    title: `${product.name} | ShipYard`,
+    description: product.description,
+  };
 }
 
 export default async function ProductPage({
@@ -34,9 +59,14 @@ export default async function ProductPage({
           className="detail-art"
           style={{ background: product.accent }}
         >
-          <span className="detail-emoji">
-            {product.emoji}
-          </span>
+          <Image
+            src={product.image}
+            alt={product.name}
+            width={800}
+            height={800}
+            sizes="(max-width: 650px) 100vw, 50vw"
+            className="detail-image"
+          />
         </div>
 
         <div className="detail-content">
@@ -63,6 +93,8 @@ export default async function ProductPage({
           </ul>
         </div>
       </article>
+
+      <Reviews />
     </main>
   );
 }
